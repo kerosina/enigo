@@ -1,6 +1,6 @@
 [package]
 name = "enigo"
-version = "0.3.1"
+version = "0.3.2"
 authors = [
     "pentamassiv <pentamassiv@posteo.de>",
     "Dustin Bensing <dustin.bensing@googlemail.com>",
@@ -44,8 +44,8 @@ strum = ["dep:strum","dep:strum_macros"]
 [dependencies]
 log = "0.4"
 serde = { version = "1", features = ["derive"], optional = true }
-strum = { version = "0.26", features = ["derive"], optional = true }
-strum_macros = { version = "0.26", features = ["derive"], optional = true }
+strum = { version = "0.26", optional = true }
+strum_macros = { version = "0.26", optional = true }
 
 [target.'cfg(target_os = "windows")'.dependencies]
 windows = { version = "0.59", features = [
