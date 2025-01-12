@@ -2,6 +2,8 @@
 use log::trace;
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
+#[cfg(feature = "strum")]
+use strum_macros::EnumString;
 
 #[cfg(test)]
 use strum_macros::EnumIter;
@@ -13,6 +15,8 @@ use strum_macros::EnumIter;
 /// or the [`crate::Keyboard::raw`] function. Some of the keys are only
 /// available on a specific platform. Use conditional compilation to use them.
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[cfg_attr(feature = "strum", derive(EnumString))]
+#[cfg_attr(feature = "strum", strum(ascii_case_insensitive))]
 #[cfg_attr(test, derive(EnumIter))]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum Key {
